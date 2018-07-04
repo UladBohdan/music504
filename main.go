@@ -27,7 +27,7 @@ func run() {
 	for _, username := range lastfmUsernames {
 		tr, err := getTopTrack(username, from, to)
 		if err != nil {
-			fmt.Printf("failed to get top track for %s: %s\n", username, err)
+			fmt.Printf("failed to get top track for '%s': %s\n", username, err)
 			return
 		}
 		topTracks[username] = tr
