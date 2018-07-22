@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"net/http"
 	"strconv"
+	"strings"
 	"time"
 )
 
@@ -14,6 +15,11 @@ type lastfmTrack struct {
 	Name      string            `json:"name"`
 	Playcount string            `json:"playcount"`
 	URL       string            `json:"url"`
+}
+
+func normalizeLastfmURL(url string) string {
+	x := strings.Replace(url, "(", "%28", -1)
+	return strings.Replace(x, ")", "%29", -1)
 }
 
 type lastfmChart map[string]map[string][]lastfmTrack
@@ -53,7 +59,7 @@ func getTopTrack(username string, from, to time.Time) (track, error) {
 		Artist:    top.Artist["#text"],
 		Name:      top.Name,
 		Playcount: int(playcount),
-		URL:       top.URL,
+		URL:       normalizeLastfmURL(top.URL),
 		username:  username,
 	}, nil
 }
