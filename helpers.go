@@ -1,6 +1,8 @@
 package main
 
-import "time"
+import (
+	"time"
+)
 
 // Whenever the method is called, it treats UTC's 'yesterday' as the last day
 // of the range. I.e. to make it work naturally, the method should be called
@@ -18,6 +20,8 @@ func timeframeToTime(period timeframe) (from, to time.Time) {
 		from = to.AddDate(0, -1, 0)
 	case threeMonths:
 		from = to.AddDate(0, -3, 0)
+	case sixMonths:
+		from = to.AddDate(0, -6, 0)
 	case oneYear:
 		from = to.AddDate(-1, 0, 0)
 	}
@@ -34,6 +38,8 @@ func parseTimePeriod(period string) (parsed timeframe) {
 		parsed = oneMonth
 	case "threeMonths":
 		parsed = threeMonths
+	case "sixMonths":
+		parsed = sixMonths
 	case "oneYear":
 		parsed = oneYear
 	}

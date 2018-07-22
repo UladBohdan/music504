@@ -2,4 +2,4 @@
 set -e
 
 go build
-./music504 --debug
+./music504 --enable_tips

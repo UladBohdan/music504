@@ -44,10 +44,16 @@ func getTopTrack(username string, from, to time.Time) (track, error) {
 
 	top := chart["weeklytrackchart"]["track"][0]
 
+	playcount, err := strconv.ParseInt(top.Playcount, 10, 64)
+	if err != nil {
+		return track{}, err
+	}
+
 	return track{
 		Artist:    top.Artist["#text"],
 		Name:      top.Name,
-		Playcount: top.Playcount,
+		Playcount: int(playcount),
 		URL:       top.URL,
+		username:  username,
 	}, nil
 }

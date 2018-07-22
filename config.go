@@ -8,6 +8,7 @@ const (
 	twoWeeks
 	oneMonth
 	threeMonths
+	sixMonths
 	oneYear
 )
 
@@ -21,6 +22,10 @@ const (
 
 	channelDebugName    = "@uladbohdan_test0"
 	channelOfficialName = "@room504music"
+
+	outputTimeFormat = "Jan 02"
+
+	yandexMusicSearchURL = "https://music.yandex.ru/search?text=%v"
 )
 
 var (
@@ -33,10 +38,11 @@ var (
 	}
 
 	periodToTitle = map[timeframe]string{
-		oneWeek:     "Падборка за апошні тыдзень",
-		twoWeeks:    "Пятнічная падборка за апошнія два тыдні!",
+		oneWeek:     "Падборка за апошні тыдзень:",
+		twoWeeks:    "Пятнічная падборка за два тыдні:",
 		oneMonth:    "Падборачка за месяц",
-		threeMonths: "Падборачка за тры месяца!",
-		oneYear:     "Уууу гадавая!",
+		threeMonths: "Падборачка за тры месяцы!",
+		sixMonths:   "За паўгады:",
+		oneYear:     "🥂 гадавая!",
 	}
 )
