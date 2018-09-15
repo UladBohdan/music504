@@ -20,7 +20,6 @@ func formatMessage(tracks []track, period timeframe, from, to time.Time) string 
 
 	for _, tr := range tracks {
 		s += fmt.Sprintf("[🎵](%v) %v :  [%v](%v)\n", produceYandexMusicLink(tr.Artist, tr.Name), tr.Artist, tr.Name, tr.URL)
-		fmt.Println("XXX: ", produceYandexMusicLink(tr.Artist, tr.Name))
 	}
 
 	s += "\nlistened accordingly by:\n\n"
